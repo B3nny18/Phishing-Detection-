@@ -1,0 +1,43 @@
+# .gitignore
+# ----------
+# This file tells Git which files and folders to ignore and never
+# track or upload to GitHub. Any file or folder listed here will
+# be invisible to Git even if it exists on your local machine.
+#
+# We mainly use this for three reasons:
+# 1. Datasets are too large for GitHub (100MB file limit) so all
+#    CSV, XLSX, and JSON files are excluded
+# 2. Trained model files (.pkl) can be several hundred MB so those
+#    are excluded too
+# 3. Auto-generated junk files like Python cache (__pycache__) and
+#    Jupyter auto-saves (.ipynb_checkpoints) add noise to the repo
+#
+# IMPORTANT: if a teammate needs the datasets they should download
+# them manually from the links in README.md and place them in
+# data/raw/ themselves. Never try to commit a dataset to this repo.
+
+# Datasets - too large for GitHub
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+*.json
+
+# Trained models - also large
+results/*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter auto-saves
+.ipynb_checkpoints/
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Any secret keys
+.env
+secrets.py
