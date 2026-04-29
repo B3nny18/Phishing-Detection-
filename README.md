@@ -19,6 +19,7 @@ Machine learning model to classify emails as phishing or legitimate using superv
    DO NOT commit datasets to GitHub because they are already in .gitignore. 
 
 ## Project Structure
+```
 phishing-detection/
 │
 ├── data/
@@ -44,6 +45,7 @@ phishing-detection/
 │
 ├── .gitignore
 └── README.md
+```
 
 ## Datasets
 Download and place in data/raw/ before running any notebooks.
