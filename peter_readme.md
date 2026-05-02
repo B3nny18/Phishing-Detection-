@@ -1,6 +1,6 @@
 
-
-
+# Citation Stuff
+I am using Github's Copiolt's Autocomple Tab feature to speed up my coding. It trys to predict what I will type next so it codes what I am going to code before I write it down so that I can save time. I am not sure what Citation I need to write if any, so I will need to figure that out.
 
 # Bugs
 - Import of xgboost (5/1/26)
@@ -53,13 +53,13 @@ Experiment 2 (05_experiment2.ipynb) — Model Comparison:
 
 ### Your Goals
 1. Implement all 3 header feature functions in src/features.py
-    - sender_domain_mismatch 
-    - has_spf_fail
+    - sender_domain_mismatch **(DONE)**
+    - has_spf_fail **(DONE)**
     - timestamp_anomaly **(DONE)**
 
 2. Build the full train_and_evaluate() function in src/models.py
    that handles training, timing inference, computing all metrics,
-   saving the model with joblib, and returning results
+   saving the model with joblib, and returning results **(Having Error with Imports)**
 
 3. Run hyperparameter tuning with GridSearchCV for all four models
 
