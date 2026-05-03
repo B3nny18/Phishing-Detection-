@@ -56,9 +56,6 @@ Download and place in data/raw/ before running any notebooks.
 - PhiUSIIL Phishing URL Dataset (UCI)
   https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset
 
-- Phishing Email Curated Datasets (Zenodo - Champa et al.)
-  https://zenodo.org/records/8339691
-
 - Phishing Email Detection (Kaggle - Cyber Cop)
   https://www.kaggle.com/datasets/subhajournal/phishingemails
 
