@@ -41,3 +41,6 @@ Thumbs.db
 # Any secret keys
 .env
 secrets.py
+
+.virtual_documents/
+anaconda_projects/
