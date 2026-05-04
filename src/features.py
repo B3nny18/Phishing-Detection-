@@ -84,11 +84,64 @@ def has_url_shortener(url: str) -> int:
     except:
         return 0
 
-# CONTENT FEATURES (Theryn) 
+# CONTENT FEATURES (Theryn Kee)
+
 def has_javascript(email_body: str) -> int:
     """Returns 1 if email body contains JavaScript"""
     soup = BeautifulSoup(str(email_body), 'html.parser')
     return int(bool(soup.find('script')))
+
+def is_html(email_body: str) -> int:
+    """Returns 1 if email body contains any HTML tags."""
+    try:
+        soup = BeautifulSoup(str(email_body), 'html.parser')
+        return int(bool(soup.find()))
+    except:
+        return 0
+
+def has_form(email_body: str) -> int:
+    """Returns 1 if email body contains a form tag
+    which is commonly used in phishing to steal credentials."""
+    try:
+        soup = BeautifulSoup(str(email_body), 'html.parser')
+        return int(bool(soup.find('form')))
+    except:
+        return 0
+
+def num_suspicious_keywords(email_body: str) -> int:
+    """Returns count of high-risk phishing keywords found in email body."""
+    try:
+        keywords = ['verify', 'urgent', 'suspended', 'confirm',
+                    'update', 'account', 'click here', 'limited time']
+        text = str(email_body).lower()
+        return sum(1 for kw in keywords if kw in text)
+    except:
+        return 0
+
+def link_text_ratio(email_body: str) -> float:
+    """Returns ratio of anchor tag characters to total body text length.
+    High ratio indicates email is mostly links which is suspicious."""
+    try:
+        soup = BeautifulSoup(str(email_body), 'html.parser')
+        total_text = len(soup.get_text())
+        if total_text == 0:
+            return 0.0
+        link_chars = sum(len(tag.get_text()) for tag in soup.find_all('a'))
+        return round(link_chars / total_text, 4)
+    except:
+        return 0.0
+
+def has_nonmodal_here_link(email_body: str) -> int:
+    """Returns 1 if email contains deceptive click here style links."""
+    try:
+        soup = BeautifulSoup(str(email_body), 'html.parser')
+        for tag in soup.find_all('a', href=True):
+            text = tag.get_text(strip=True).lower()
+            if 'click here' in text:
+                return 1
+        return 0
+    except:
+        return 0
 
 # HEADER FEATURES (Peter) 
 def sender_domain_mismatch(from_domain: str, email_body: str) -> int:
@@ -96,7 +149,7 @@ def sender_domain_mismatch(from_domain: str, email_body: str) -> int:
     
     # If empty strings or None values are passed, return -1
     if from_domain is None or email_body is None or str(from_domain).strip() == '' or str(email_body).strip() == '':
-        return -1
+        return 0
     # Extract domain from email body
     body_domain = tldextract.extract(str(email_body)).domain
     return int(str(from_domain).strip().lower() not in 
@@ -106,7 +159,7 @@ def has_spf_fail(email_body: str) -> int:
     """Returns 1 if email header has SPF authentication failure. Looks at the body of the email and checks for a substring of "spf=fail" (returns 1) or "spf=pass" (returns 0). If neither is found then returns 1 since the status can not be confirmed. If the parameter is empty or None then returns -1."""
     # If empty strings or None values are passed, return -1
     if email_body is None or str(email_body).strip() == '':
-        return -1
+        return 0
     
     # From what I can tell the way to understand if an email from the data set has an SPF failure I need to look for the substring "spf=fail" in the email body.
     if 'spf=fail' in str(email_body).strip().lower():
@@ -121,7 +174,7 @@ def timestamp_anomaly(date: str, received: str) -> int:
     
     # If empty strings or None values are passed, return -1
     if date is None or received is None or str(date).strip() == '' or str(received).strip() == '':
-        return -1
+        return 0
     # Example format to reference: "Tue, 05 Aug 2008 16:31:02 -0700"
     # Parse the day, month, year, and time from the date and timestamp
     date_parts = str(date).strip().split()

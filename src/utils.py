@@ -20,5 +20,5 @@ def plot_confusion_matrix(cm, model_name):
                 yticklabels=['Legitimate', 'Phishing'])
     plt.title(f'{model_name} Confusion Matrix')
     plt.tight_layout()
-    plt.savefig(f'results/figures/{model_name}_cm.png', dpi=150)
+    plt.savefig(f'../results/figures/{model_name}_cm.png', dpi=150)
     plt.show()
