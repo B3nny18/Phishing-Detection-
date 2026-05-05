@@ -1,5 +1,9 @@
 # Phishing Email Detection
 
+## AI use disclaimer
+Dr Shin confimed that we could use the Github's Copilot Tab Autocomplete feature offered in VSCode. He said that we simply needed to mention that it was used as citation.
+- Peter: used this feature on features.py on functions sender_domain_mismatch, has_spf_fail, and timestamp_anomaly. {Side note I put this in my README but it got lost in the branch merge so I rewrote it here again}
+
 ## Project Overview
 Machine learning model to classify emails as phishing or legitimate using supervised binary classification. The model analyzes three categories of features: URL-based features, email content-based features, and header/metadata features. Four ML algorithms are compared: Random Forest, XGBoost, SVM, and Decision Tree. The goal is to achieve at least 95% accuracy with under 15ms inference time per email.
 
