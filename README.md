@@ -11,8 +11,8 @@ offered in VSCode. He said that we simply needed to mention that it was used as 
 
 ## Project Overview
 This project develops and evaluates a machine learning-based phishing detection 
-system using three supervised classification algorithms — Random Forest, XGBoost, 
-and Decision Tree — across two data modalities: raw email text and structured URL 
+system using three supervised classification algorithms (Random Forest, XGBoost, 
+and Decision Tree) across two data modalities: raw email text and structured URL 
 features. Email-based detection uses TF-IDF vectorization on a combined dataset of 
 99,608 emails. URL-based detection uses 50 engineered features from the PhiUSIIL 
 dataset across 234,987 samples. Four experiments were conducted evaluating feature 
@@ -20,7 +20,7 @@ set contribution, model comparison, and TF-IDF vocabulary size impact.
 
 **Final Results:**
 - Email Dataset — Random Forest: 98.74% accuracy, 98.72% F1-score
-- URL Dataset — All models: 100% accuracy (see Discussion in report for overfitting notes)
+- URL Dataset — All models: 100% accuracy 
 
 ## Requirements
 - Anaconda (https://www.anaconda.com/download)
