@@ -40,6 +40,7 @@ set contribution, model comparison, and TF-IDF vocabulary size impact.
 
 ## Project Structure
 
+```
 phishing-detection/
 │
 ├── data/
@@ -72,7 +73,7 @@ phishing-detection/
 │
 ├── .gitignore
 └── README.md
-
+```
 
 ## Datasets
 Download and place in data/raw/ before running any notebooks.
